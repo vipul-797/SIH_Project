@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block styles %}
+<style>
+   body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+        }
+
+        header {
+          background: linear-gradient(to right, #3498db, #2980b9, #1f618d, #154360);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8em 1.5em;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .login-signup {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-button,
+        .signup-button {
+            padding: 0.5em 1em;
+            background-color: #2ecc71;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .chatgpt-section {
+            margin-top: 40px;
+        }
+
+        @media screen and (max-width: 600px) {
+            section {
+                padding: 1em;
+            }
+
+            .login-signup {
+                flex-direction: column;
+            }
+
+            .login-button,
+            .signup-button {
+                margin-top: 10px;
+            }
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+<header>
+        <h1 style="color: #fff; font-size: 50px;"><svg xmlns="http://www.w3.org/2000/svg" height="50" width="50"
+                viewBox="0 0 448 512">
+                <path fill="white"
+                    d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z" />
+            </svg>
+            PowerPal</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to PowerPal</h2>
+        <p>
+            PowerPal is an advanced language model that can assist you with a variety of tasks. Whether you need help,
+            information, or just want to have a conversation, PowerPal is here for you.
+        </p>
+
+        <div class="login-signup">
+            <a href="{% url 'login' %}" class="login-button">Login</a>
+            <a href="{% url 'register' %}" class="signup-button">Signup</a>
+        </div>
+    </section>
+
+    <section class="chatgpt-section">
+        <h2>Chat with PowerPal</h2>
+        <p>
+            Start a conversation with PowerPal to experience its capabilities.
+        </p>
+
+        <a href="{% url 'login' %}" class="cta-button">Start Chat</a>
+    </section>
+    <br>
+    <footer>
+        <p style="color: #fff;">&copy; 2023 PowerPal. All rights reserved.</p>
+    </footer>
+{% endblock %}
+
+
+

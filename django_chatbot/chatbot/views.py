@@ -9,22 +9,34 @@ from .models import Chat
 from django.utils import timezone
 
 
-openai_api_key = 'input-your-key'
+openai_api_key = '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'
 openai.api_key = openai_api_key
 
 def ask_openai(message):
     response = openai.ChatCompletion.create(
-        model = "gpt-4",
-        messages=[
-            {"role": "system", "content": "You are an helpful assistant."},
-            {"role": "user", "content": message},
-        ]
+        model = "text-davinci-003",
+        prompt = message,
+        max_tokens=150,
+        n=1,
+        stop=None,
+        temperature=0.7,
+
+        # messages=[
+        #     {"role": "system", "content": "You are an helpful assistant."},
+        #     {"role": "user", "content": message},
+        # ]
     )
     
-    answer = response.choices[0].message.content.strip()
+    answer = response.choices[0].text.strip()
     return answer
+    # answer = response.choices[0].message.content.strip()
+    # return answer
 
 # Create your views here.
+
+def index(request):
+    return render(request, 'index.html')
+
 def chatbot(request):
     chats = Chat.objects.filter(user=request.user)
 
